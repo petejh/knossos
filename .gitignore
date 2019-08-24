@@ -1,0 +1,5 @@
+# bundler binstubs
+bin/
+
+# local environment
+/.bundle/
