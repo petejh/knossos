@@ -1,90 +1,65 @@
 require 'cell'
 
 RSpec.describe 'Cell' do
-  context 'when pristine' do
-    before(:all) do
-      @cell = Cell.new
-    end
+  describe '#new' do
+    context 'when pristine' do
+      let(:cell) { Cell.new }
 
-    it 'does not know its row' do
-      expect(@cell.row).to be_nil
-    end
-    it 'does not know its column' do
-      expect(@cell.column).to be_nil
-    end
-    it 'holds no contents' do
-      expect(@cell.contents).to be_nil
-    end
-    it 'has no neighbors' do
-      expect(@cell.neighbors).to be_empty
-    end
-  end
-
-  context 'when created with initial values' do
-    before(:all) do
-      @args = {
-        :row => 2,
-        :column => 5,
-        :contents => "rabbit"
-      }
-
-      @cell = Cell.new(@args)
-    end
-
-    it 'knows its row' do
-      expect(@cell.row).to eq @args[:row]
-    end
-
-    it 'knows its column' do
-      expect(@cell.column).to eq @args[:column]
-    end
-
-    it 'holds the specified contents' do
-      expect(@cell.contents).to eq @args[:contents]
-    end
-  end
-
-  context 'with neighbors' do
-    before(:each) do
-      @cell = Cell.new
-      @unlinked_neighbor = Cell.new
-      @linked_neighbor = Cell.new
-
-      [@unlinked_neighbor, @linked_neighbor].each do |neighbor|
-        @cell.add_neighbor(neighbor)
+      it 'does not know its row' do
+        expect(cell.row).to be_nil
       end
-      @cell.link_to(@linked_neighbor)
+
+      it 'does not know its column' do
+        expect(cell.column).to be_nil
+      end
+
+      it 'holds no contents' do
+        expect(cell.contents).to be_nil
+      end
     end
 
-    it 'knows its neighbors' do
-      expect(@cell.neighbors).to include(@unlinked_neighbor, @linked_neighbor)
-    end
+    context 'when created with initial values' do
+      before(:each) do
+        @args = {
+          :row => 2,
+          :column => 5,
+          :contents => "rabbit"
+        }
+      end
+      let(:cell) { Cell.new(@args) }
 
-    it 'recognizes a linked neighbor' do
-      expect(@cell.linked?(@linked_neighbor)).to be true
-    end
+      it 'knows its row' do
+        expect(cell.row).to eq @args[:row]
+      end
 
-    it 'recognizes an unlinked neighbor' do
-      expect(@cell.linked?(@unlinked_neighbor)).to be false
+      it 'knows its column' do
+        expect(cell.column).to eq @args[:column]
+      end
+
+      it 'holds the specified contents' do
+        expect(cell.contents).to eq @args[:contents]
+      end
     end
   end
 
-  context 'without neighbors' do
-    before(:each) do
-      @cell = Cell.new
-      @other = Cell.new
+  describe '#link_to, #linked?' do
+    let(:cell) { Cell.new }
+    let(:other) { Cell.new }
+
+    it 'is not linked to nil by default' do
+      expect(cell.linked?(nil)).to be false
     end
 
-    it 'adds linked cells to its neighbors' do
-      @cell.link_to(@other)
+    it 'can be linked to nil' do
+      cell.link_to(nil)
 
-      expect(@cell.neighbors).to include @other
+      expect(cell.linked?(nil)).to be true
     end
 
-    it 'does not automatically link its neighbors' do
-      @cell.add_neighbor(@other)
+    it 'can be linked to another cell' do
+      cell.link_to(other)
 
-      expect(@cell.linked?(@other)).to be false
+      expect(cell.linked?(other)).to be true
     end
   end
 end

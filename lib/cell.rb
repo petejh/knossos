@@ -9,24 +9,15 @@ class Cell
     @column = args[:column]
     @contents = args[:contents]
 
-    @neighbors = {}
+    @links = []
   end
 
   def link_to(cell)
-    @neighbors[cell] = true
+    @links << cell
   end
 
   def linked?(cell)
-    @neighbors[cell] == true
-  end
-
-  def add_neighbor(cell)
-    @neighbors[cell] = false unless @neighbors[cell]
-    neighbors
-  end
-
-  def neighbors
-    @neighbors.keys
+    @links.include? cell
   end
 
   private
