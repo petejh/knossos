@@ -9,7 +9,10 @@ Install dependencies
 ~$ bundle install --binstubs
 ```
 
-Additional tools
+### Running tests
+```bash
+~$ bin/rspec
+```
 
 ### Running the code
 ```bash
