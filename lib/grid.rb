@@ -35,6 +35,34 @@ class Grid
     grid.reduce(0) { |acc, e| acc += e.count }
   end
 
+  def to_s
+    output = "+" + "---+" * columns + "\n"
+
+    grid.each do |row|
+      body_row = "|"
+      bottom_row = "+"
+
+      row.each do |cell|
+        row = cell.row
+        col = cell.column
+
+        east = self[row, col + 1]
+        east_border = cell.linked?(east) ? " " : "|"
+
+        south = self[row + 1, col]
+        south_border = cell.linked?(south) ? "   " : "---"
+
+        body_row << "   " << east_border
+        bottom_row << south_border << "+"
+      end
+
+      output << body_row << "\n"
+      output << bottom_row << "\n"
+    end
+
+    output
+  end
+
   private
   attr_accessor :grid
 
