@@ -19,6 +19,16 @@ class Grid
     grid[row][column]
   end
 
+  def each_row
+    grid.each { |row| yield row }
+  end
+
+  def each_cell
+    each_row do |row|
+      row.each { |cell| yield cell }
+    end
+  end
+
   def neighborhood(cell)
     row = cell.row
     col = cell.column

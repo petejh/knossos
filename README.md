@@ -16,6 +16,8 @@ Install dependencies
 
 ### Running the code
 ```bash
+~$ irb -I./lib -r cell.rb -r grid.rb -r binary_tree.rb
+irb> puts BinaryTree.carve(Grid.new({:rows => 5, :columns => 5}))
 ```
 
 ---
