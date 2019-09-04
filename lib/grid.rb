@@ -45,6 +45,11 @@ class Grid
     grid.reduce(0) { |acc, e| acc += e.count }
   end
 
+  def build_passage(cell, other)
+    cell.link_to(other)
+    other.link_to(cell)
+  end
+
   def to_s
     output = "+" + "---+" * columns + "\n"
 

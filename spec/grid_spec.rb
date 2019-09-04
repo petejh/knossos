@@ -108,11 +108,11 @@ RSpec.describe 'Grid' do
       let(:args) { {:rows => 1, :columns => 1} }
 
       it 'displays a 1x1 grid' do
-        grid_1x1 = <<-GRID
-+---+
-|   |
-+---+
-GRID
+        grid_1x1 = <<~GRID
+          +---+
+          |   |
+          +---+
+        GRID
 
         expect(grid.to_s).to eq grid_1x1
       end
@@ -122,18 +122,32 @@ GRID
       let(:args) { {:rows => 3, :columns => 3} }
 
       it 'displays a 3x3 grid' do
-        grid_3x3 = <<-GRID
-+---+---+---+
-|   |   |   |
-+---+---+---+
-|   |   |   |
-+---+---+---+
-|   |   |   |
-+---+---+---+
-GRID
+        grid_3x3 = <<~GRID
+          +---+---+---+
+          |   |   |   |
+          +---+---+---+
+          |   |   |   |
+          +---+---+---+
+          |   |   |   |
+          +---+---+---+
+        GRID
 
         expect(grid.to_s).to eq grid_3x3
       end
+    end
+  end
+
+  describe '#build_passage' do
+    let(:grid) { Grid.new({rows: 3, columns: 3}) }
+
+    it 'links two cells with a passage' do
+      first = grid[1, 0]
+      second = grid[1, 1]
+
+      grid.build_passage(first, second)
+
+      expect(first.linked?(second)).to be true
+      expect(second.linked?(first)).to be true
     end
   end
 end
