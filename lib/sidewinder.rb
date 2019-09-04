@@ -9,13 +9,11 @@ class Sidewinder
           member = run.sample
 
           north = grid[member.row - 1, member.column]
-          member.link_to(north) if north
-          north.link_to(member) if north
+          grid.build_passage(member, north) if north
           run.clear
         else
           east = grid[cell.row, cell.column + 1]
-          cell.link_to(east)
-          east.link_to(cell)
+          grid.build_passage(cell, east)
         end
       end
     end
