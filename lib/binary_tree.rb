@@ -11,8 +11,7 @@ module BinaryTree
 
       neighbor = neighbors.sample
 
-      cell.link_to(neighbor) if neighbor
-      neighbor.link_to(cell) if neighbor
+      grid.build_passage(cell, neighbor) if neighbor
     end
 
     grid
