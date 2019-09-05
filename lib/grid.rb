@@ -41,6 +41,14 @@ class Grid
     [north, east, south, west].compact
   end
 
+  def north(cell)
+    self[cell.row - 1, cell.column]
+  end
+
+  def east(cell)
+    self[cell.row, cell.column + 1]
+  end
+
   def cell_count
     grid.reduce(0) { |acc, e| acc += e.count }
   end

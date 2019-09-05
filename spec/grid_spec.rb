@@ -150,4 +150,38 @@ RSpec.describe 'Grid' do
       expect(second.linked?(first)).to be true
     end
   end
+
+  describe '#north' do
+    let(:grid) { Grid.new({rows: 2, columns: 1}) }
+
+    it 'returns nil when there is no neighbor to the north' do
+      cell = grid[0, 0]
+
+      expect(grid.north(cell)).to be_nil
+    end
+
+    it 'returns the neighbor to the north' do
+      cell = grid[1, 0]
+      north = grid[0, 0]
+
+      expect(grid.north(cell)).to eq north
+    end
+  end
+
+  describe '#east' do
+    let(:grid) { Grid.new({rows: 1, columns: 2}) }
+
+    it 'returns nil when there is no neighbor to the east' do
+      cell = grid[0, 1]
+
+      expect(grid.east(cell)).to be_nil
+    end
+
+    it 'returns the neighbor to the east' do
+      cell = grid[0, 0]
+      east = grid[0, 1]
+
+      expect(grid.east(cell)).to eq east
+    end
+  end
 end
