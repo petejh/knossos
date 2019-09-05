@@ -3,14 +3,13 @@ module BinaryTree
     grid.each_cell do |cell|
       neighbors = []
 
-      north = grid[cell.row - 1, cell.column]
-      east = grid[cell.row, cell.column + 1]
-
+      north = grid.north(cell)
       neighbors << north if north
+
+      east = grid.east(cell)
       neighbors << east if east
 
       neighbor = neighbors.sample
-
       grid.build_passage(cell, neighbor) if neighbor
     end
 
