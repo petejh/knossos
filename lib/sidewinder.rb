@@ -8,11 +8,12 @@ class Sidewinder
         if close_out_run?(grid, cell)
           member = run.sample
 
-          north = grid[member.row - 1, member.column]
+          north = grid.north(member)
           grid.build_passage(member, north) if north
+
           run.clear
         else
-          east = grid[cell.row, cell.column + 1]
+          east = grid.east(cell)
           grid.build_passage(cell, east)
         end
       end
@@ -28,14 +29,10 @@ class Sidewinder
   end
 
   def self.at_east_border?(grid, cell)
-    east = grid[cell.row, cell.column + 1]
-
-    east.nil?
+    grid.east(cell).nil?
   end
 
   def self.at_north_border?(grid, cell)
-    north = grid[cell.row - 1, cell.column]
-
-    north.nil?
+    grid.north(cell).nil?
   end
 end
