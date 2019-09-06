@@ -62,25 +62,22 @@ class Grid
     output = "+" + "---+" * columns + "\n"
 
     grid.each do |row|
-      body_row = "|"
-      bottom_row = "+"
+      body = "|"
+      bottom = "+"
 
       row.each do |cell|
-        row = cell.row
-        col = cell.column
-
-        east = self[row, col + 1]
+        east = east(cell)
         east_border = cell.linked?(east) ? " " : "|"
 
-        south = self[row + 1, col]
+        south = south(cell)
         south_border = cell.linked?(south) ? "   " : "---"
 
-        body_row << "   " << east_border
-        bottom_row << south_border << "+"
+        body << "   " << east_border
+        bottom << south_border << "+"
       end
 
-      output << body_row << "\n"
-      output << bottom_row << "\n"
+      output << body << "\n"
+      output << bottom << "\n"
     end
 
     output
