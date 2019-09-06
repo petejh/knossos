@@ -29,16 +29,8 @@ class Grid
     end
   end
 
-  def neighborhood(cell)
-    row = cell.row
-    col = cell.column
-
-    north = self[row - 1, col]
-    south = self[row + 1, col]
-    east = self[row, col + 1]
-    west = self[row, col - 1]
-
-    [north, east, south, west].compact
+  def cell_count
+    grid.reduce(0) { |acc, e| acc += e.count }
   end
 
   def north(cell)
@@ -57,8 +49,8 @@ class Grid
     self[cell.row, cell.column - 1]
   end
 
-  def cell_count
-    grid.reduce(0) { |acc, e| acc += e.count }
+  def neighborhood(cell)
+    [:north, :east, :south, :west].map { |dir| self.send(dir, cell) }.compact
   end
 
   def build_passage(cell, other)
