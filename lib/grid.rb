@@ -49,6 +49,14 @@ class Grid
     self[cell.row, cell.column + 1]
   end
 
+  def south(cell)
+    self[cell.row + 1, cell.column]
+  end
+
+  def west(cell)
+    self[cell.row, cell.column - 1]
+  end
+
   def cell_count
     grid.reduce(0) { |acc, e| acc += e.count }
   end
