@@ -3,3 +3,6 @@ bin/
 
 # local environment
 /.bundle/
+
+# temporary files
+out/
