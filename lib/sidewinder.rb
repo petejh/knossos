@@ -1,5 +1,5 @@
 class Sidewinder
-  def self.carve(grid: grid)
+  def self.carve(grid:)
     grid.each_row do |row|
       run = []
       row.each do |cell|
