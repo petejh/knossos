@@ -1,26 +1,4 @@
-require 'chunky_png'
-
-class Image
-  def initialize(width, height, color)
-    @image = ChunkyPNG::Image.new(width, height, color)
-  end
-
-  def line(x0, y0, x1, y1, color)
-    image.line(x0, y0, x1, y1, color)
-  end
-
-  def out
-    image
-  end
-
-  private
-  attr_accessor :image
-end
-
-module Color
-  WHITE = ChunkyPNG::Color::WHITE
-  BLACK = ChunkyPNG::Color::BLACK
-end
+require 'png_adapter'
 
 class Display
   def initialize(grid, **options)
@@ -45,7 +23,7 @@ class Display
       image.line(x1, y2, x2, y2, wall_color) unless cell.linked?(grid.south(cell))
     end
 
-    image.out
+    image
   end
 
   private
@@ -54,8 +32,8 @@ class Display
 
   def defaults
     { cell_size: 10,
-      background_color: Color::WHITE,
-      wall_color: Color::BLACK
+      background_color: PNGAdapter::Color::WHITE,
+      wall_color: PNGAdapter::Color::BLACK
     }
   end
 
@@ -63,7 +41,7 @@ class Display
     width = grid.columns * cell_size
     height = grid.rows * cell_size
 
-    Image.new(width + 1, height + 1, background_color)
+    PNGAdapter::Image.new(width + 1, height + 1, background_color)
   end
 
   def coordinates_for(cell)
