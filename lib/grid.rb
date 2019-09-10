@@ -20,12 +20,12 @@ class Grid
   end
 
   def each_row
-    grid.each { |row| yield row }
+    grid.each_with_index { |cells, row| yield(cells, row) }
   end
 
   def each_cell
-    each_row do |row|
-      row.each { |cell| yield cell }
+    each_row do |cells, row|
+      cells.each_with_index { |cell, column| yield(cell, row, column) }
     end
   end
 

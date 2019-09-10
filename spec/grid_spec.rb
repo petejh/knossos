@@ -65,6 +65,39 @@ RSpec.describe 'Grid' do
     end
   end
 
+  describe '#each_row' do
+
+    it 'yields once for each row' do
+      grid = Grid.new({rows: 3, columns: 3})
+
+      expect{ |b| grid.each_row(&b) }.to yield_control.exactly(3).times
+    end
+
+    it 'yields a row of cells with their row number' do
+      grid = Grid.new({rows: 1, columns: 2})
+
+      first = grid[0, 0]
+      second = grid[0, 1]
+
+      expect{ |b| grid.each_row(&b) }.to yield_with_args([first, second], 0)
+    end
+  end
+
+  describe '#each_cell' do
+    it 'yields once for each cell' do
+      grid = Grid.new({rows: 3, columns: 3})
+
+      expect { |b| grid.each_cell(&b) }.to yield_control.exactly(9).times
+    end
+
+    it 'yields a cell with its row and column' do
+      grid = Grid.new({rows: 1, columns: 1})
+      cell = grid[0, 0]
+
+      expect { |b| grid.each_cell(&b) }.to yield_with_args(cell, 0, 0)
+    end
+  end
+
   describe '#neighborhood' do
     let (:grid) { Grid.new }
 
