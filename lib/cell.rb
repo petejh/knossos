@@ -1,5 +1,5 @@
 class Cell
-  attr_reader :row, :column
+  attr_reader :row, :column, :links
   attr_accessor :contents
 
   def initialize(args = {})
