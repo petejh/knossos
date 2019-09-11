@@ -29,6 +29,13 @@ class Grid
     end
   end
 
+  def random_cell
+    row = rand(rows)
+    column = rand(columns_for(row))
+
+    self[row, column]
+  end
+
   def cell_count
     grid.reduce(0) { |acc, e| acc += e.count }
   end

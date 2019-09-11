@@ -98,6 +98,20 @@ RSpec.describe 'Grid' do
     end
   end
 
+  describe '#random_cell' do
+    let(:grid) { Grid.new }
+
+    it 'selects a cell' do
+      expect(grid.random_cell).not_to be_nil
+    end
+
+    it 'returns a cell' do
+      cell = grid.random_cell
+
+      expect(cell.class).to eq Cell
+    end
+  end
+
   describe '#neighborhood' do
     let (:grid) { Grid.new }
 
