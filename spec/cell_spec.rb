@@ -1,9 +1,9 @@
-require 'cell'
+require 'knossos/cell'
 
-RSpec.describe 'Cell' do
+RSpec.describe 'Knossos::Cell' do
   describe '#new' do
     context 'when pristine' do
-      let(:cell) { Cell.new }
+      let(:cell) { Knossos::Cell.new }
 
       it 'does not know its row' do
         expect(cell.row).to be_nil
@@ -26,7 +26,7 @@ RSpec.describe 'Cell' do
           :contents => "rabbit"
         }
       end
-      let(:cell) { Cell.new(@args) }
+      let(:cell) { Knossos::Cell.new(@args) }
 
       it 'knows its row' do
         expect(cell.row).to eq @args[:row]
@@ -43,8 +43,8 @@ RSpec.describe 'Cell' do
   end
 
   describe '#link_to, #linked?' do
-    let(:cell) { Cell.new }
-    let(:other) { Cell.new }
+    let(:cell) { Knossos::Cell.new }
+    let(:other) { Knossos::Cell.new }
 
     it 'is not linked to nil by default' do
       expect(cell.linked?(nil)).to be false

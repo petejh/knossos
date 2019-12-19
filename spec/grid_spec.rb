@@ -1,12 +1,12 @@
-require 'grid'
+require 'knossos/grid'
 
-RSpec.describe 'Grid' do
+RSpec.describe 'Knossos::Grid' do
   context 'when pristine' do
     before(:all) do
       @default_rows = 10
       @default_columns = 10
     end
-    let(:grid) { Grid.new }
+    let(:grid) { Knossos::Grid.new }
 
     it 'defaults to a sensible number of rows' do
       expect(grid.rows).to eq @default_rows
@@ -26,7 +26,7 @@ RSpec.describe 'Grid' do
       @rows = 3
       @columns = 5
     end
-    let(:grid) { Grid.new({:rows => @rows, :columns => @columns}) }
+    let(:grid) { Knossos::Grid.new({:rows => @rows, :columns => @columns}) }
 
     it 'knows its rows' do
       expect(grid.rows).to eq @rows
@@ -42,7 +42,7 @@ RSpec.describe 'Grid' do
   end
 
   describe 'indexing using []' do
-    let (:grid) { Grid.new }
+    let (:grid) { Knossos::Grid.new }
 
     it 'locates a cell' do
       expect(grid[1, 2].column).to eq 2
@@ -68,13 +68,13 @@ RSpec.describe 'Grid' do
   describe '#each_row' do
 
     it 'yields once for each row' do
-      grid = Grid.new({rows: 3, columns: 3})
+      grid = Knossos::Grid.new({rows: 3, columns: 3})
 
       expect{ |b| grid.each_row(&b) }.to yield_control.exactly(3).times
     end
 
     it 'yields a row of cells with their row number' do
-      grid = Grid.new({rows: 1, columns: 2})
+      grid = Knossos::Grid.new({rows: 1, columns: 2})
 
       first = grid[0, 0]
       second = grid[0, 1]
@@ -85,13 +85,13 @@ RSpec.describe 'Grid' do
 
   describe '#each_cell' do
     it 'yields once for each cell' do
-      grid = Grid.new({rows: 3, columns: 3})
+      grid = Knossos::Grid.new({rows: 3, columns: 3})
 
       expect { |b| grid.each_cell(&b) }.to yield_control.exactly(9).times
     end
 
     it 'yields a cell with its row and column' do
-      grid = Grid.new({rows: 1, columns: 1})
+      grid = Knossos::Grid.new({rows: 1, columns: 1})
       cell = grid[0, 0]
 
       expect { |b| grid.each_cell(&b) }.to yield_with_args(cell, 0, 0)
@@ -99,7 +99,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#random_cell' do
-    let(:grid) { Grid.new }
+    let(:grid) { Knossos::Grid.new }
 
     it 'selects a cell' do
       expect(grid.random_cell).not_to be_nil
@@ -108,12 +108,12 @@ RSpec.describe 'Grid' do
     it 'returns a cell' do
       cell = grid.random_cell
 
-      expect(cell.class).to eq Cell
+      expect(cell.class).to eq Knossos::Cell
     end
   end
 
   describe '#neighborhood' do
-    let (:grid) { Grid.new }
+    let (:grid) { Knossos::Grid.new }
 
     let (:nw_corner) { grid[0, 0] }
 
@@ -149,7 +149,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#to_s' do
-    let(:grid) { Grid.new(args) }
+    let(:grid) { Knossos::Grid.new(args) }
 
     context 'with a single cell' do
       let(:args) { {:rows => 1, :columns => 1} }
@@ -185,7 +185,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#build_passage' do
-    let(:grid) { Grid.new({rows: 3, columns: 3}) }
+    let(:grid) { Knossos::Grid.new({rows: 3, columns: 3}) }
 
     it 'links two cells with a passage' do
       first = grid[1, 0]
@@ -199,7 +199,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#north' do
-    let(:grid) { Grid.new({rows: 2, columns: 1}) }
+    let(:grid) { Knossos::Grid.new({rows: 2, columns: 1}) }
 
     it 'returns nil when there is no neighbor to the north' do
       cell = grid[0, 0]
@@ -216,7 +216,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#east' do
-    let(:grid) { Grid.new({rows: 1, columns: 2}) }
+    let(:grid) { Knossos::Grid.new({rows: 1, columns: 2}) }
 
     it 'returns nil when there is no neighbor to the east' do
       cell = grid[0, 1]
@@ -233,7 +233,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#south' do
-    let(:grid) { Grid.new({rows: 2, columns: 1}) }
+    let(:grid) { Knossos::Grid.new({rows: 2, columns: 1}) }
 
     it 'returns nil when there is no neighbor to the south' do
       cell = grid[1, 0]
@@ -250,7 +250,7 @@ RSpec.describe 'Grid' do
   end
 
   describe '#west' do
-    let(:grid) { Grid.new({rows: 1, columns: 2}) }
+    let(:grid) { Knossos::Grid.new({rows: 1, columns: 2}) }
 
     it 'returns nil when there is no neighbor to the west' do
       cell = grid[0, 0]
