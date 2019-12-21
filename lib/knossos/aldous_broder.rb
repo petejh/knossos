@@ -1,5 +1,3 @@
-require_relative 'grid'
-
 module Knossos
   module AldousBroder
     def carve(grid)

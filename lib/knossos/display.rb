@@ -1,5 +1,3 @@
-require_relative 'png_adapter'
-
 module Knossos
   class Display
     def initialize(grid, **options)

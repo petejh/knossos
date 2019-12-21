@@ -1,5 +1,3 @@
-require_relative 'cell'
-
 module Knossos
   class Grid
     attr_reader :rows, :columns

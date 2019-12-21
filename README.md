@@ -32,7 +32,7 @@ and run the tests:
 You can experiment with the code interactively using:
 ```bash
 ~/knossos$ bin/console
-irb> puts BinaryTree.carve(Grid.new({:rows => 5, :columns => 5}))
+irb> puts Knossos::BinaryTree.carve(Knossos::Grid.new())
 ```
 
 ### Publishing

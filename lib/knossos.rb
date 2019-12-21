@@ -1,5 +1,12 @@
 require 'knossos/version'
 
-module Knossos
-  class Error < StandardError; end
-end
+require 'knossos/aldous_broder'
+require 'knossos/binary_tree'
+require 'knossos/cell'
+require 'knossos/display'
+require 'knossos/error'
+require 'knossos/grid'
+require 'knossos/png_adapter'
+require 'knossos/recursive_backtracker'
+require 'knossos/sidewinder'
+require 'knossos/wilsons'
