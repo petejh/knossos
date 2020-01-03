@@ -1,5 +1,6 @@
 require 'knossos/version'
 
+require 'knossos/algorithm'
 require 'knossos/aldous_broder'
 require 'knossos/binary_tree'
 require 'knossos/cell'

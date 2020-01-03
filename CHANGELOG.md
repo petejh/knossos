@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 This project uses [Semantic Versioning][sv].
 
 ## [Unreleased][new]
+- Add an abstract base class for maze-building algorithms
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added
