@@ -5,6 +5,7 @@ This project uses [Semantic Versioning][sv].
 
 ## [Unreleased][new]
 - Add an abstract base class for maze-building algorithms
+- Declare BinaryTree to descend from Algorithm
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added

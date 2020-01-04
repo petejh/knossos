@@ -1,15 +1,7 @@
-require 'knossos/algorithm'
+require 'knossos/algorithm/shared_examples_for_algorithm'
 
 RSpec.describe Knossos::Algorithm do
-  describe '.carve' do
-    it 'responds to `carve`' do
-      expect(described_class).to respond_to(:carve)
-    end
-
-    it 'requires a `grid` keyword argument' do
-      expect(described_class).to respond_to(:carve).with_keywords(:grid)
-    end
-  end
+  it_behaves_like 'algorithm'
 
   describe 'abstract interface' do
     let(:algorithm) { Class.new(described_class) }
