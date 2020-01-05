@@ -1,6 +1,6 @@
-module Knossos
-  module RecursiveBacktracker
-    def carve(grid, start_at: grid.random_cell)
+module Algorithm
+  class RecursiveBacktracker
+    def self.carve(grid:, start_at: grid.random_cell)
       stack = []
       stack.push start_at
 
@@ -19,7 +19,5 @@ module Knossos
 
       grid
     end
-
-    module_function :carve
   end
 end
