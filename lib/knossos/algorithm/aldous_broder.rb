@@ -1,6 +1,6 @@
-module Knossos
-  module AldousBroder
-    def carve(grid)
+module Algorithm
+  class AldousBroder
+    def self.carve(grid:)
       cell = grid.random_cell
       unvisited = grid.cell_count - 1
 
@@ -17,7 +17,5 @@ module Knossos
 
       grid
     end
-
-    module_function :carve
   end
 end

@@ -7,6 +7,7 @@ This project uses [Semantic Versioning][sv].
 - Add an abstract base class for maze-building algorithms
 - Declare BinaryTree to descend from Algorithm
 - Remove Algorithm abstract class and replace with Algorithm module
+- Move AldousBroder to the Algorithm module
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added
