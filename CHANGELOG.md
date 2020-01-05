@@ -10,6 +10,7 @@ This project uses [Semantic Versioning][sv].
 - Move AldousBroder to the Algorithm module
 - Move RecursiveBacktracker to the Algorithm module
 - Move Wilsons to the Algorithm module
+- Move Sidewinder to the Algorithm module
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added

@@ -1,4 +1,4 @@
-module Knossos
+module Algorithm
   class Sidewinder
     def self.carve(grid:)
       grid.each_row do |row|
