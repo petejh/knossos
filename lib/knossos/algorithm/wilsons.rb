@@ -1,6 +1,6 @@
-module Knossos
-  module Wilsons
-    def carve(grid)
+module Algorithm
+  class Wilsons
+    def self.carve(grid:)
       unvisited = []
       grid.each_cell { |cell| unvisited << cell }
 
@@ -28,7 +28,5 @@ module Knossos
 
       grid
     end
-
-    module_function :carve
   end
 end

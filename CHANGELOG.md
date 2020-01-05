@@ -9,6 +9,7 @@ This project uses [Semantic Versioning][sv].
 - Remove Algorithm abstract class and replace with Algorithm module
 - Move AldousBroder to the Algorithm module
 - Move RecursiveBacktracker to the Algorithm module
+- Move Wilsons to the Algorithm module
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added
