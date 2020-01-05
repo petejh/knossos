@@ -23,18 +23,20 @@ module Algorithm
       grid
     end
 
-    private
+    class << self
+      private
 
-    def self.close_out_run?(grid, cell)
-      at_east_border?(grid, cell) || (!at_north_border?(grid, cell) && rand(2) == 0)
-    end
+      def close_out_run?(grid, cell)
+        at_east_border?(grid, cell) || (!at_north_border?(grid, cell) && rand(2) == 0)
+      end
 
-    def self.at_east_border?(grid, cell)
-      grid.east(cell).nil?
-    end
+      def at_east_border?(grid, cell)
+        grid.east(cell).nil?
+      end
 
-    def self.at_north_border?(grid, cell)
-      grid.north(cell).nil?
+      def at_north_border?(grid, cell)
+        grid.north(cell).nil?
+      end
     end
   end
 end
