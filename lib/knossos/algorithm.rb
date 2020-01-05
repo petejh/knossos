@@ -1,5 +1,4 @@
-class Knossos::Algorithm
-  def self.carve(grid:)
-    raise NotImplementedError
-  end
+require_relative 'algorithm/binary_tree'
+
+module Knossos::Algorithm
 end

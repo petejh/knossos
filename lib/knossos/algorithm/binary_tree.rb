@@ -1,18 +1,20 @@
-class Knossos::Algorithm::BinaryTree < Knossos::Algorithm
-  def self.carve(grid:)
-    grid.each_cell do |cell|
-      neighbors = []
+module Algorithm
+  class BinaryTree
+    def self.carve(grid:)
+      grid.each_cell do |cell|
+        neighbors = []
 
-      north = grid.north(cell)
-      neighbors << north if north
+        north = grid.north(cell)
+        neighbors << north if north
 
-      east = grid.east(cell)
-      neighbors << east if east
+        east = grid.east(cell)
+        neighbors << east if east
 
-      neighbor = neighbors.sample
-      grid.build_passage(cell, neighbor) if neighbor
+        neighbor = neighbors.sample
+        grid.build_passage(cell, neighbor) if neighbor
+      end
+
+      grid
     end
-
-    grid
   end
 end
