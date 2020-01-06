@@ -4,5 +4,7 @@ require_relative 'algorithm/recursive_backtracker'
 require_relative 'algorithm/sidewinder'
 require_relative 'algorithm/wilsons'
 
-module Knossos::Algorithm
+module Knossos
+  module Algorithm
+  end
 end
