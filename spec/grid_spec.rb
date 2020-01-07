@@ -148,42 +148,6 @@ RSpec.describe 'Knossos::Grid' do
     end
   end
 
-  describe '#to_s' do
-    let(:grid) { Knossos::Grid.new(args) }
-
-    context 'with a single cell' do
-      let(:args) { {:rows => 1, :columns => 1} }
-
-      it 'displays a 1x1 grid' do
-        grid_1x1 = <<~GRID
-          +---+
-          |   |
-          +---+
-        GRID
-
-        expect(grid.to_s).to eq grid_1x1
-      end
-    end
-
-    context 'with 3 rows and 3 columns' do
-      let(:args) { {:rows => 3, :columns => 3} }
-
-      it 'displays a 3x3 grid' do
-        grid_3x3 = <<~GRID
-          +---+---+---+
-          |   |   |   |
-          +---+---+---+
-          |   |   |   |
-          +---+---+---+
-          |   |   |   |
-          +---+---+---+
-        GRID
-
-        expect(grid.to_s).to eq grid_3x3
-      end
-    end
-  end
-
   describe '#build_passage' do
     let(:grid) { Knossos::Grid.new({rows: 3, columns: 3}) }
 

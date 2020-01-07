@@ -64,31 +64,6 @@ module Knossos
       other.link_to(cell)
     end
 
-    def to_s
-      output = "+" + "---+" * columns + "\n"
-
-      grid.each do |row|
-        body = "|"
-        bottom = "+"
-
-        row.each do |cell|
-          east = east(cell)
-          east_border = cell.linked?(east) ? " " : "|"
-
-          south = south(cell)
-          south_border = cell.linked?(south) ? "   " : "---"
-
-          body << "   " << east_border
-          bottom << south_border << "+"
-        end
-
-        output << body << "\n"
-        output << bottom << "\n"
-      end
-
-      output
-    end
-
     private
     attr_accessor :grid
 

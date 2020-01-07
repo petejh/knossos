@@ -12,6 +12,7 @@ This project uses [Semantic Versioning][sv].
 - Move Wilsons to the Algorithm module
 - Move Sidewinder to the Algorithm module
 - Correctly scope private methods in Sidewinder
+- Refactor Grid#to_s to Renderer::Text#render
 
 ## [0.0.0][0.0.0] — 2019-12-13
 ### Added
