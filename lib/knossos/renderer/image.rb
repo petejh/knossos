@@ -1,5 +1,5 @@
-module Knossos
-  class Display
+module Renderer
+  class Image
     def initialize(grid, **options)
       options = defaults.merge(options)
 
@@ -11,7 +11,7 @@ module Knossos
       @image = create_canvas
     end
 
-    def to_png
+    def render
       grid.each_cell do |cell, row, column|
         x1, y1, x2, y2 = coordinates_for(row, column)
 

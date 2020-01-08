@@ -13,6 +13,21 @@ Or install the library globally with:
 ```
 
 ## Usage
+```ruby
+#!/usr/bin/env ruby
+
+require 'knossos'
+
+grid = Knossos::Grid.new({rows: 5, columns: 5})
+Algorithm::BinaryTree.carve(grid: grid)
+
+text_renderer = Renderer::Text.new
+puts text_renderer.render(grid: grid)
+
+image_renderer = Renderer::Image.new(grid)
+png = image_renderer.render
+png.save("maze.png")
+```
 
 ## Contributing
 Bug reports and pull requests are welcome on [GitHub][orig]. Knossos provides
@@ -32,7 +47,6 @@ and run the tests:
 You can experiment with the code interactively using:
 ```bash
 ~/knossos$ bin/console
-irb> puts Knossos::BinaryTree.carve(Knossos::Grid.new())
 ```
 
 ### Publishing

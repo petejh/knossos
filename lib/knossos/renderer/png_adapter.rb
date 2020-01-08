@@ -1,6 +1,6 @@
 require 'chunky_png'
 
-module Knossos
+module Renderer
   module PNGAdapter
     class Image
       def initialize(width, height, color)
