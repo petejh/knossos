@@ -6,6 +6,7 @@ This project uses [Semantic Versioning][sv].
 ## [Unreleased][new]
 ### Changed
 - Correctly nest the `Algorithm` module within the `Knossos` namespace.
+- Correctly nest the `Renderer` module within the `Knossos` namespace.
 
 ## [0.1.0][0.1.0] — 2020-01-07
 ### Added

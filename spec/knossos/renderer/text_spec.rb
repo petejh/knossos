@@ -1,6 +1,6 @@
-RSpec.describe Renderer::Text do
+RSpec.describe Knossos::Renderer::Text do
   describe '#to_s' do
-    let(:renderer) { Renderer::Text.new }
+    let(:renderer) { Knossos::Renderer::Text.new }
     let(:grid) { Knossos::Grid.new(args) }
 
     context 'with a single cell' do
