@@ -19,12 +19,12 @@ Or install the library globally with:
 require 'knossos'
 
 grid = Knossos::Grid.new({rows: 5, columns: 5})
-Algorithm::BinaryTree.carve(grid: grid)
+Knossos::Algorithm::BinaryTree.carve(grid: grid)
 
-text_renderer = Renderer::Text.new
+text_renderer = Knossos::Renderer::Text.new
 puts text_renderer.render(grid: grid)
 
-image_renderer = Renderer::Image.new(grid)
+image_renderer = Knossos::Renderer::Image.new(grid)
 png = image_renderer.render
 png.save("maze.png")
 ```
