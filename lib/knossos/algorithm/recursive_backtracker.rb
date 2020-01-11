@@ -1,7 +1,11 @@
 module Knossos
   module Algorithm
     class RecursiveBacktracker
-      def self.carve(grid:, start_at: grid.random_cell)
+      def initialize
+        # nothing to do
+      end
+
+      def carve(grid:, start_at: grid.random_cell)
         stack = []
         stack.push start_at
 

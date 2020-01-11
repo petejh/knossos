@@ -1,7 +1,11 @@
 module Knossos
   module Algorithm
     class BinaryTree
-      def self.carve(grid:)
+      def initialize
+        # nothing to do
+      end
+
+      def carve(grid:)
         grid.each_cell do |cell|
           neighbors = []
 

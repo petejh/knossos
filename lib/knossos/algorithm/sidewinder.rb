@@ -1,7 +1,11 @@
 module Knossos
   module Algorithm
     class Sidewinder
-      def self.carve(grid:)
+      def initialize
+        # nothing to do
+      end
+
+      def carve(grid:)
         grid.each_row do |row|
           run = []
           row.each do |cell|
@@ -24,20 +28,18 @@ module Knossos
         grid
       end
 
-      class << self
-        private
+      private
 
-        def close_out_run?(grid, cell)
-          at_east_border?(grid, cell) || (!at_north_border?(grid, cell) && rand(2) == 0)
-        end
+      def close_out_run?(grid, cell)
+        at_east_border?(grid, cell) || (!at_north_border?(grid, cell) && rand(2) == 0)
+      end
 
-        def at_east_border?(grid, cell)
-          grid.east(cell).nil?
-        end
+      def at_east_border?(grid, cell)
+        grid.east(cell).nil?
+      end
 
-        def at_north_border?(grid, cell)
-          grid.north(cell).nil?
-        end
+      def at_north_border?(grid, cell)
+        grid.north(cell).nil?
       end
     end
   end

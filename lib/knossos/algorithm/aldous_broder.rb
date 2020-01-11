@@ -1,7 +1,11 @@
 module Knossos
   module Algorithm
     class AldousBroder
-      def self.carve(grid:)
+      def initialize
+        # nothing to do
+      end
+
+      def carve(grid:)
         cell = grid.random_cell
         unvisited = grid.cell_count - 1
 

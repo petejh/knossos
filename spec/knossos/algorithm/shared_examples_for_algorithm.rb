@@ -1,11 +1,13 @@
 RSpec.shared_examples 'algorithm' do
-  describe '.carve' do
+  describe '#carve' do
+    let(:carver) { described_class.new }
+
     it 'responds to `carve`' do
-      expect(described_class).to respond_to(:carve)
+      expect(carver).to respond_to(:carve)
     end
 
     it 'requires a `grid` keyword argument' do
-      expect(described_class).to respond_to(:carve).with_keywords(:grid)
+      expect(carver).to respond_to(:carve).with_keywords(:grid)
     end
   end
 end

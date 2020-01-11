@@ -19,7 +19,8 @@ Or install the library globally with:
 require 'knossos'
 
 grid = Knossos::Grid.new({rows: 5, columns: 5})
-Knossos::Algorithm::BinaryTree.carve(grid: grid)
+carver = Knossos::Algorithm::BinaryTree.new
+carver.carve(grid: grid)
 
 text_renderer = Knossos::Renderer::Text.new
 puts text_renderer.render(grid: grid)

@@ -4,7 +4,9 @@ All notable changes to this project will be documented in this file.
 This project uses [Semantic Versioning][sv].
 
 ## [Unreleased][new]
+### Changed
 - Update Usage in README with namespace changes.
+- Change `carve` to be an instance method of the Algorithm classes.
 
 ## [0.2.0][0.2.0] — 2020-01-09
 ### Changed

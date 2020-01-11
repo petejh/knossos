@@ -1,7 +1,11 @@
 module Knossos
   module Algorithm
     class Wilsons
-      def self.carve(grid:)
+      def initialize
+        # nothing to do
+      end
+
+      def carve(grid:)
         unvisited = []
         grid.each_cell { |cell| unvisited << cell }
 
