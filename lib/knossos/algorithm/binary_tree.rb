@@ -1,25 +1,29 @@
 module Knossos
   module Algorithm
     class BinaryTree
-      def initialize
-        # nothing to do
+      attr_reader :bias
+
+      def initialize(**options)
+        options = defaults.merge(options)
+
+        @bias = options[:bias]
       end
 
       def carve(grid:)
         grid.each_cell do |cell|
-          neighbors = []
-
-          north = grid.north(cell)
-          neighbors << north if north
-
-          east = grid.east(cell)
-          neighbors << east if east
+          neighbors = bias.map { |direction| grid.send(direction, cell) }.compact
 
           neighbor = neighbors.sample
           grid.build_passage(cell, neighbor) if neighbor
         end
 
         grid
+      end
+
+      private
+
+      def defaults
+        { bias: [:north, :east] }
       end
     end
   end
