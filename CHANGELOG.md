@@ -5,7 +5,8 @@ This project uses [Semantic Versioning][sv].
 
 ## [Unreleased][new]
 ### Added
-- `BinaryTree` accepts an option to configure the bias.
+- `BinaryTree` accepts an option to configure the bias
+- Add the `HuntAndKill` algorithm for generating mazes
 
 ### Changed
 - Update Usage in README with namespace changes.
