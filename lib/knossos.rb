@@ -3,6 +3,7 @@ require 'knossos/cell'
 require 'knossos/error'
 require 'knossos/grid'
 require 'knossos/renderer'
+require 'knossos/serializer'
 require 'knossos/version'
 
 module Knossos

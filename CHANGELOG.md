@@ -7,6 +7,10 @@ This project uses [Semantic Versioning][sv].
 ### Added
 - `BinaryTree` accepts an option to configure the bias
 - Add the `HuntAndKill` algorithm for generating mazes
+- Create a `Serializer` module to hold the methods that encode mazes for
+  archiving and transfer.
+- Add the `Bitmask` serializer to represent the maze as a matrix of integers,
+  where each integer is a bitfield encoding the passage directions.
 
 ### Changed
 - Update Usage in README with namespace changes.
