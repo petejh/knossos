@@ -11,6 +11,8 @@ This project uses [Semantic Versioning][sv].
   archiving and transfer.
 - Add the `Bitmask` serializer to represent the maze as a matrix of integers,
   where each integer is a bitfield encoding the passage directions.
+- Add `Bitmask#deserialize` to decode an array of bitmasked integers into a
+  maze.
 
 ### Changed
 - Update Usage in README with namespace changes.
