@@ -9,7 +9,9 @@ module Knossos
         @bias = options[:bias]
       end
 
-      def carve(grid:)
+      def carve(seed = nil, grid:)
+        srand(seed || Kernel.srand)
+
         grid.each_cell do |cell|
           neighbors = bias.map { |direction| grid.send(direction, cell) }.compact
 

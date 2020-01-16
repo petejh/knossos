@@ -22,4 +22,12 @@ RSpec.describe Knossos::Algorithm::BinaryTree do
       end
     end
   end
+
+  describe '#carve' do
+    let(:carver) { described_class.new }
+
+    it 'may be called with an optional, non-keyword argument [seed]' do
+      expect(carver).to respond_to(:carve).with(0..1).arguments.and_keywords(:grid)
+    end
+  end
 end
