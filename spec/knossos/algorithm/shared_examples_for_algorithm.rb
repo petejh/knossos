@@ -9,5 +9,9 @@ RSpec.shared_examples 'algorithm' do
     it 'requires a `grid` keyword argument' do
       expect(carver).to respond_to(:carve).with_keywords(:grid)
     end
+
+    it 'allows a `seed` keyword argument' do
+      expect(carver).to respond_to(:carve).with_keywords(:grid, :seed)
+    end
   end
 end

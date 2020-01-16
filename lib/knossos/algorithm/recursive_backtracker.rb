@@ -5,7 +5,11 @@ module Knossos
         # nothing to do
       end
 
-      def carve(grid:, start_at: grid.random_cell)
+      def carve(grid:, start_at: nil, seed: nil)
+        srand(seed || Kernel.srand)
+
+        start_at ||= grid.random_cell
+
         stack = []
         stack.push start_at
 

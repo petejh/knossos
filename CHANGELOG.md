@@ -13,7 +13,7 @@ This project uses [Semantic Versioning][sv].
   where each integer is a bitfield encoding the passage directions.
 - Add `Bitmask#deserialize` to decode an array of bitmasked integers into a
   maze.
-- `BinaryTree#carve` accepts an argument to set the seed for the random number
+- Algorithms accept an argument to `#carve` to set the seed for the random number
   generator
 
 ### Changed

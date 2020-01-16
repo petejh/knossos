@@ -5,7 +5,9 @@ module Knossos
         # nothing to do
       end
 
-      def carve(grid:)
+      def carve(grid:, seed: nil)
+        srand(seed || Kernel.srand)
+
         grid.each_row do |row|
           run = []
           row.each do |cell|

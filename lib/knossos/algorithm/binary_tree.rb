@@ -9,7 +9,7 @@ module Knossos
         @bias = options[:bias]
       end
 
-      def carve(seed = nil, grid:)
+      def carve(grid:, seed: nil)
         srand(seed || Kernel.srand)
 
         grid.each_cell do |cell|

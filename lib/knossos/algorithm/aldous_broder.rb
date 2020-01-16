@@ -5,7 +5,9 @@ module Knossos
         # nothing to do
       end
 
-      def carve(grid:)
+      def carve(grid:, seed: nil)
+        srand(seed || Kernel.srand)
+
         cell = grid.random_cell
         unvisited = grid.cell_count - 1
 

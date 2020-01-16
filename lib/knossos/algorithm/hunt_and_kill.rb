@@ -7,7 +7,9 @@ module Knossos
         options = defaults.merge(options)
       end
 
-      def carve(grid:)
+      def carve(grid:, seed: nil)
+        srand(seed || Kernel.srand)
+
         current = grid.random_cell
 
         while current
