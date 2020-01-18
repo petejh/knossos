@@ -15,6 +15,10 @@ This project uses [Semantic Versioning][sv].
   maze.
 - Algorithms accept an argument to `#carve` to set the seed for the random number
   generator
+- Create a `Solver` module to hold algorithms that analyze or plot solutions to
+  mazes.
+- Create `Solver::Distances` helper class to store the distances from a root
+  cell to any other cell in the maze.
 
 ### Changed
 - Update Usage in README with namespace changes.
