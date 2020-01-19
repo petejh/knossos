@@ -19,6 +19,8 @@ This project uses [Semantic Versioning][sv].
   mazes.
 - Create `Solver::Distances` helper class to store the distances from a root
   cell to any other cell in the maze.
+- Add a solver based on Dijkstra's algorithm to calculate the distances from a
+  given cell to every other cell in the maze.
 
 ### Changed
 - Update Usage in README with namespace changes.
