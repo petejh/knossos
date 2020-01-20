@@ -21,6 +21,8 @@ This project uses [Semantic Versioning][sv].
   cell to any other cell in the maze.
 - Add a solver based on Dijkstra's algorithm to calculate the distances from a
   given cell to every other cell in the maze.
+- Add `Dijkstra#path_to` to extract the shortest path from the starting cell to
+  a given goal.
 
 ### Changed
 - Update Usage in README with namespace changes.

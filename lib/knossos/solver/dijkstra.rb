@@ -25,6 +25,27 @@ module Knossos
 
         @distances
       end
+
+      def path_to(goal:)
+        current = goal
+
+        path = Distances.new(root: @start)
+        path[current] = @distances[current]
+#        puts "path[current] = #{path[current]}"
+
+        until current == @start
+          current.links.each do |neighbor|
+#            puts "@distances[neighbor] = #{@distances[neighbor]}"
+            if @distances[neighbor] < @distances[current]
+              path[neighbor] = @distances[neighbor]
+              current = neighbor
+              break
+            end
+          end
+        end
+
+        path
+      end
     end
   end
 end
