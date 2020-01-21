@@ -23,6 +23,7 @@ This project uses [Semantic Versioning][sv].
   given cell to every other cell in the maze.
 - Add `Dijkstra#path_to` to extract the shortest path from the starting cell to
   a given goal.
+- Display all distances or the solution path within the rendered grid.
 
 ### Changed
 - Update Usage in README with namespace changes.

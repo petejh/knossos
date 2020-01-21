@@ -5,7 +5,7 @@ module Knossos
         # nothing to do
       end
 
-      def render(grid:)
+      def render(grid:, distances: nil)
         output = "+" + "---+" * grid.columns + "\n"
 
         grid.each_row do |row|
@@ -19,7 +19,7 @@ module Knossos
             south = grid.south(cell)
             south_border = cell.linked?(south) ? "   " : "---"
 
-            body << "   " << east_border
+            body << decorate(cell, distances) << east_border
             bottom << south_border << "+"
           end
 
@@ -28,6 +28,13 @@ module Knossos
         end
 
         output
+      end
+
+      private
+
+      def decorate(cell, distances)
+        label = distances && distances[cell] ? distances[cell].to_s(36) : ' '
+        " #{label} "
       end
     end
   end
