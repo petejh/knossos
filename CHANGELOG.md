@@ -19,11 +19,12 @@ This project uses [Semantic Versioning][sv].
   mazes.
 - Create `Solver::Distances` helper class to store the distances from a root
   cell to any other cell in the maze.
-- Add a solver based on Dijkstra's algorithm to calculate the distances from a
-  given cell to every other cell in the maze.
-- Add `Dijkstra#path_to` to extract the shortest path from the starting cell to
-  a given goal.
+- Add `Dijkstra#distances_from` to calculate the distances from a given cell to
+  every other cell in the maze.
+- Add `Dijkstra#shortest_path` to extract the shortest path from the starting
+  cell to a given goal.
 - Display all distances or the solution path within the rendered grid.
+- Add `Dijkstra#longest_path` to find the longest path in the entire maze.
 
 ### Changed
 - Update Usage in README with namespace changes.
