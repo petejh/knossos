@@ -25,6 +25,7 @@ This project uses [Semantic Versioning][sv].
   cell to a given goal.
 - Display all distances or the solution path within the rendered grid.
 - Add `Dijkstra#longest_path` to find the longest path in the entire maze.
+- Add interface tests for `Dijkstra`.
 
 ### Changed
 - Update Usage in README with namespace changes.
